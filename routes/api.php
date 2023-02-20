@@ -10,7 +10,7 @@ use App\Http\Controllers\SkladController;
 use App\Http\Controllers\WorkmanController;
 use App\Http\Controllers\BugalterController;
 use App\Http\Controllers\DirectorController;
-
+//test
 Route::post('login', [AuthController::class, 'login']);
 Route::post('refreshToken', [AuthController::class, 'refreshToken']);
     
