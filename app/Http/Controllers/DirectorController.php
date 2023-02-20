@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chief;
 use App\Models\Bugalter;
 use App\Models\Director;
 use App\Models\AbortChief;
@@ -38,7 +39,7 @@ class DirectorController extends Controller
     public function  unsend(Request $request)
     {
         $director =Director::findOrFail($request->id);
-        $chief= new AbortChief();
+        $chief= new Chief();
         $chief->address=$director->address;
         $chief->company_name=$director->company_name;
         $chief->product_title=$director->product_title;
@@ -46,6 +47,7 @@ class DirectorController extends Controller
         $chief->count=$director->count;
         $chief->meter=$director->meter;
         $chief->comment=$request->comment;
+        $chief->status=1;
         $chief->save();
         $director->delete();
         return 'Done abort successfully';

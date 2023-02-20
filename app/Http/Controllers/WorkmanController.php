@@ -11,12 +11,12 @@ class WorkmanController extends Controller
 {
     public function   list()
     {
-    return   Workman::limit(10)->get();  
+    return   Workman::where('status',0)->get();  
     }
 
     public function   abortList()
     {
-    return   AbortWorkman::limit(10)->get();  
+    return   Workman::where('status',1)->get();  
     }
 
     public function show(Request $request)
