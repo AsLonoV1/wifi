@@ -44,4 +44,5 @@ class User extends Authenticatable
     {
         return $this->where('email', $email)->first();
     }
+
 }

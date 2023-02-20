@@ -28,6 +28,8 @@ class UserController extends Controller
         $user->role_id=$request->role_id;
         $user->email=$request->email;
         $user->phone=$request->phone;
+        $user->sinior_id=$request->sinior_id;
+        $user->skilad_id=$request->skilad_id;
         $user->password=bcrypt($request->password);
         $user->save();
        return 'User created successfully';
@@ -42,6 +44,8 @@ class UserController extends Controller
        if($request->role_id!=null)  $user->role_id=$request->role_id;
        if($request->email!=null) $user->email=$request->email;
        if($request->phone!=null) $user->phone=$request->phone;
+       if(!is_null($request->sinior_id)) $user->sinior_id=$request->sinior_id;
+       if(!is_null($request->skilad_id)) $user->skilad_id=$request->skilad_id;
        if($request->password!=null) $user->password=bcrypt($request->password);
         $user->save();
         return $user;

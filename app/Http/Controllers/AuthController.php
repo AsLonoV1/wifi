@@ -25,8 +25,8 @@ class AuthController extends Controller
                 $response = $client->post("http://wifi.loc/oauth/token", [
                     'form_params' => [
                         'grant_type' => 'password',
-                        'client_id' => config('services.passport.id'),
-                        'client_secret' => config('services.passport.secret'),
+                        'client_id' => 2,
+                        'client_secret' => "uhnefP8B3kJqqjt6XeXtUl4kKG73aGTLyIgUKocB",
                         'username' => $request->email,
                         'password' => $request->password,
                         'scope' => '*'
@@ -55,8 +55,8 @@ class AuthController extends Controller
                 'form_params' => [
                     'grant_type' => 'refresh_token',
                     'refresh_token' => $request->refresh_token,
-                    'client_id' => config('services.passport.id'),
-                    'client_secret' => config('services.passport.secret'),
+                    'client_id' => 2,
+                    'client_secret' => "uhnefP8B3kJqqjt6XeXtUl4kKG73aGTLyIgUKocB",
                     'scope' => '',
                 ]
             ]);
