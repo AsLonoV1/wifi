@@ -15,12 +15,9 @@ return new class extends Migration
     {
         Schema::create('chiefs', function (Blueprint $table) {
             $table->id();
+            $table->string('document_id');
             $table->string('address');
             $table->string('company_name');
-            $table->string('product_title');
-            $table->string('amout');
-            $table->string('count');
-            $table->string('meter');
             $table->string('comment')->nullable();
             $table->string('status')->default('0');
             $table->timestamps();

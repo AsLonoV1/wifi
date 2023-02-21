@@ -21,5 +21,10 @@ class Workman extends Model
        'count',
        'meter',
     ];
+    public function products()
+    {
+        return $this->hasMany(Product::class,'document_id','id');
+    }
+
 
 }

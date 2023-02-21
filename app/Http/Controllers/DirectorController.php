@@ -12,24 +12,21 @@ class DirectorController extends Controller
 {
     public function   list()
     {
-    return   Director::limit(10)->get();  
+    return   Director::limit(10)->with('products')->get();  
     }
 
     public function show(Request $request)
     {
-       return  Director::where('id',$request->id)->first(); 
+       return  Director::where('id',$request->id)->with('products')->first(); 
     }
 
     public function  send(Request $request)
     {
         $director =Director::findOrFail($request->id);
         $bugalter= new Bugalter();
+        $bugalter->document_id=$director->document_id;
         $bugalter->address=$director->address;
         $bugalter->company_name=$director->company_name;
-        $bugalter->product_title=$director->product_title;
-        $bugalter->amout=$director->amout;
-        $bugalter->count=$director->count;
-        $bugalter->meter=$director->meter;
         $bugalter->save();
         $director->delete();
         return 'Done send successfully';
@@ -40,12 +37,9 @@ class DirectorController extends Controller
     {
         $director =Director::findOrFail($request->id);
         $chief= new Chief();
+        $chief->document_id=$director->document_id;
         $chief->address=$director->address;
         $chief->company_name=$director->company_name;
-        $chief->product_title=$director->product_title;
-        $chief->amout=$director->amout;
-        $chief->count=$director->count;
-        $chief->meter=$director->meter;
         $chief->comment=$request->comment;
         $chief->status=1;
         $chief->save();

@@ -20,5 +20,8 @@ class Director extends Model
        'count',
        'meter',
     ];
-
+    public function products()
+    {
+        return $this->hasMany(Product::class,'document_id','document_id');
+    }
 }

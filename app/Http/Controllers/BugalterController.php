@@ -9,11 +9,11 @@ class BugalterController extends Controller
 {
     public function   list()
     {
-    return   Bugalter::limit(10)->get();  
+    return   Bugalter::limit(10)->with('products')->get();  
     }
 
     public function show(Request $request)
     {
-       return  Bugalter::where('id',$request->id)->first(); 
+       return  Bugalter::where('id',$request->id)->with('products')->first(); 
     }
 }

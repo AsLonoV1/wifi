@@ -42,7 +42,8 @@ Route::post('refreshToken', [AuthController::class, 'refreshToken']);
             Route::prefix('workman')->group(function(){
                 Route::get('list',[WorkmanController::class,'list']);
                 Route::get('show',[WorkmanController::class,'show']);
-                Route::post('create',[WorkmanController::class,'create']);
+                Route::post('create/document',[WorkmanController::class,'createDocument']);
+                Route::post('create/product',[WorkmanController::class,'createProduct']);
                 Route::get('delete',[WorkmanController::class,'delete']);
                 Route::get('send',[WorkmanController::class,'send']);
                 Route::get('abort/list',[WorkmanController::class,'abortList']);
